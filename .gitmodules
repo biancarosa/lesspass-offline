@@ -1,0 +1,3 @@
+[submodule "lesspass"]
+	path = lesspass
+	url = git@github.com:biancarosa/lesspass.git
