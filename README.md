@@ -5,3 +5,9 @@ This is a version of a stateless password manager I admire a lot called [lesspas
 LessPass offline is essentialy just the front-end of lesspass, consisting of a couple of changes on lesspass-pure that allows users to import/export their password profiles and remain completely offline.
 
 You can access it under [lesspass-offline.biancarosa.com.br/](https://lesspass-offline.biancarosa.com.br) or download a zip in the releases folder and run it locally.
+
+## Running it locally
+
+After downloading the zip folder, you can open up a terminal in that folder and run a simple webserver to serve it.
+
+Instructions on how to do that can be found [here](https://flaviocopes.com/local-web-server/)
