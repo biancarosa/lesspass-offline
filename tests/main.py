@@ -1,4 +1,5 @@
 import unittest
+import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -9,7 +10,10 @@ class LessPassHomePage(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Firefox()
-        self.driver.get(LESSPASS_URL)
+        try:
+            self.driver.get(LESSPASS_URL)
+        except expression:
+            self.fail("App is not up")
 
     def testImportPasswordProfilesExistOnHomePage(self):
         elem = self.driver.find_element_by_xpath(
@@ -30,7 +34,10 @@ class LessPassPasswordPage(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Firefox()
-        self.driver.get(LESSPASS_URL)
+        try:
+            self.driver.get(LESSPASS_URL)
+        except expression:
+            self.fail("App is not up")
 
     def testCreatePasswordProfile(self):
         elem = self.driver.find_element_by_xpath(
@@ -38,6 +45,7 @@ class LessPassPasswordPage(unittest.TestCase):
         elem.click()
         elem = self.driver.find_element_by_link_text(
             'Would you like to create one?')
+        time.sleep(1)
         elem.click()
         elem = self.driver.find_element_by_id('siteField')
         elem.send_keys('Site')
@@ -47,6 +55,7 @@ class LessPassPasswordPage(unittest.TestCase):
         elem.send_keys('123123')
         elem = self.driver.find_element_by_id('generatePassword__btn')
         elem.click()
+        time.sleep(1)
         elem = self.driver.find_element_by_id('revealGeneratedPassword')
         elem.click()
         elem = self.driver.find_element_by_id('generated-password')
@@ -54,7 +63,15 @@ class LessPassPasswordPage(unittest.TestCase):
         elem = self.driver.find_element_by_xpath(
             "//span[@title='Save']")
         elem.click()
-        self.assertEqual(self.driver.current_url, f"{LESSPASS_URL}/passwords")
+        time.sleep(1)
+        elem = self.driver.find_element_by_xpath(
+            "//a[@title='Saved passwords']")
+        elem.click()
+        elem = selem = self.driver.find_element_by_xpath(
+            "//div[@class='passwordProfile']/div/div[@class='passwordProfile__meta']")
+        self.assertEqual(elem.text, 'Site\nLogin')
+        elem.click()
+        time.sleep(3)
 
     def tearDown(self):
         self.driver.close()
