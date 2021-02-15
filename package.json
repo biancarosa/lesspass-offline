@@ -1,0 +1,33 @@
+{
+  "name": "lesspass-offline",
+  "version": "1.0.0",
+  "description": "This is a version of a stateless password manager I admire a lot called [lesspass](https://www.lespass.com). Hopefully, it is a momentarily fork of it because I have every intention of merging those features in the main code. Meanwhile, I am keeping this version for whoever finds it useful to use.",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "pkg": {
+    "assets": [ "lesspass/packages/lesspass-pure/dist/**/*" ],
+    "targets": [ "node12-macos-x64", "node12-linux-x64",  "node12-win-x64"]
+  },
+  "bin": "server.js",
+  "scripts": {
+    "package": "pkg --out-path dist ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biancarosa/lesspass-offline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biancarosa/lesspass-offline/issues"
+  },
+  "homepage": "https://github.com/biancarosa/lesspass-offline#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "get-port": "^5.1.1",
+    "open": "^7.4.1"
+  }
+}
