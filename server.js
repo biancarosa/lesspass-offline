@@ -1,7 +1,6 @@
 const path = require( 'path' );
 const express = require( 'express' );
 const getPort = require( 'get-port' );
-const open = require( 'open' );
 
 ( async function() {
     
@@ -15,8 +14,7 @@ const open = require( 'open' );
     app.use( '/', express.static( path.join( __dirname, './lesspass/packages/lesspass-pure/dist' ) ) );
 
     app.listen( port, async () => {
-        console.log( 'Express server started!' );
-        await open( `${ host }` ); // opens `web/index.html` page
+        console.log('Server started! Go to http://localhost:3000 to access your local LessPass instalation' );
     } );
 
 } )();

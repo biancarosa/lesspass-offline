@@ -7,10 +7,18 @@
     "test": "tests"
   },
   "pkg": {
-    "assets": [ "lesspass/packages/lesspass-pure/dist/**/*" ],
-    "targets": [ "node12-macos-x64", "node12-linux-x64",  "node12-win-x64"]
+    "assets": [
+      "lesspass/packages/lesspass-pure/dist/**/*"
+    ],
+    "targets": [
+      "node12-macos-x64",
+      "node12-linux-x64",
+      "node12-win-x64"
+    ]
   },
-  "bin": "server.js",
+  "bin": {
+    "lesspass-offline": "server.js"
+  },
   "scripts": {
     "package": "pkg --out-path dist ."
   },
@@ -27,7 +35,6 @@
   "homepage": "https://github.com/biancarosa/lesspass-offline#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "get-port": "^5.1.1",
-    "open": "^7.4.1"
+    "get-port": "^5.1.1"
   }
 }
